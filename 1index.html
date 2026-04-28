@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salgirah Mubarak Maria Shah</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Alice&family=Dancing+Script:wght@500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-top: #2b124c; 
+            --bg-bottom: #190a27;
+            --accent-gold: #f5d142;
+            --lantern-bright: #fff3a3;
+            --lantern-glow: rgba(245, 209, 66, 0.4);
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden; /* Screen scroll stop kar diya taakay sirf box scroll ho */
+            background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg-bottom) 100%);
+            color: #fff;
+            font-family: 'Alice', serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #lantern-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1; 
+            pointer-events: none; 
+        }
+
+        .content-wrapper {
+            position: relative;
+            z-index: 10; 
+            text-align: center;
+            padding: 40px 20px;
+            max-width: 800px;
+            width: 90%;
+            max-height: 85vh;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(245, 209, 66, 0.3);
+            overflow-y: auto; /* Agar text lamba ho jaye toh sirf box ke andar scroll hoga */
+            box-shadow: 0 0 40px rgba(0,0,0,0.5);
+            animation: fadeInPage 2s ease-out forwards;
+        }
+
+        /* Scrollbar styling for a clean look */
+        .content-wrapper::-webkit-scrollbar {
+            width: 5px;
+        }
+        .content-wrapper::-webkit-scrollbar-thumb {
+            background: var(--accent-gold);
+            border-radius: 10px;
+        }
+
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(2rem, 6vw, 3.5rem);
+            color: var(--accent-gold);
+            margin: 10px 0;
+            text-shadow: 0 0 15px rgba(245, 209, 66, 0.5);
+        }
+
+        .date-subtitle {
+            font-family: 'Cinzel', serif;
+            font-size: 0.8rem;
+            letter-spacing: 5px;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 20px;
+        }
+
+        .urdu-message {
+            font-size: clamp(1.1rem, 4.5vw, 1.3rem);
+            line-height: 1.8;
+            color: #f0f0f0;
+            text-align: center;
+            white-space: pre-line;
+            padding: 0 10px;
+        }
+
+        .signature {
+            margin-top: 30px;
+            font-family: 'Dancing Script', cursive;
+            font-size: 2rem;
+            color: var(--accent-gold);
+        }
+
+        .lantern {
+            position: absolute;
+            bottom: -60px; 
+            background: linear-gradient(135deg, #fffcf0 0%, var(--lantern-bright) 50%, var(--accent-gold) 100%);
+            box-shadow: 0 0 20px 5px var(--lantern-glow);
+            border-radius: 3px;
+            opacity: 0;
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.7; }
+            90% { opacity: 0.7; }
+            100% { transform: translateY(-115vh) rotate(15deg); opacity: 0; }
+        }
+
+        @keyframes fadeInPage {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="lantern-container"></div>
+
+    <main class="content-wrapper">
+        <p class="date-subtitle">April 29, 2026</p>
+        <h1>Happy Birthday, Maria Shah</h1>
+        
+        <div class="urdu-message">
+            "Maria, naam he khasa pyara hai, kio ky tumhara hai.
+            Maria Shah ye ju tumhara attitude heina apny pas rakho issy 'mujy wish mat karna'.
+            Waye, tum ho kon? Tum Maria ho, dunya ki sub sy pyari larki 😌.
+            Attitude sirf Batman dekha sakhta hai bss.
+            
+            Bake Maria, I am not wishing you birthday but I am 😌 in a different way. 
+            Ye din bara important hai '29 April', mera fav number, mera lucky number, mera jersey number 😌.
+            Kio ky iss din BSS IK LARKI NHI PADA HUWE...
+            
+            Iss din 'MARIA SHAH' dunya ki sub sy pyari, caring, beautiful aur bohat kuch pada huwe te. 
+            Abe yaha batawo ga tu message bara lamba hojaye ga.
+            
+            Maria Shah, you really really really really... SPECIAL. 
+            Allah tumhy humasha khush rakhy tumhari family ku, hamesha khush raho. 
+            I LOVE YOU SO MUCH, meri jaan, meri har chezz Maria Shah 😌.
+            
+            At last, jab be mai naraz ho tu iska matlab harkezz ye nhi hai ky mai tumhy nhi chahta aur tum mujy nhi pasand. Narazgi tu atti hai. 
+            I never want to leave you, tumhy kessy chor sakhta ho?? 
+            You are very VERYY... special.
+            
+            Aur Aaj tumhari salgirah par bas yehi dua hai ke tum hamesha khush raho aur tumhari dunya hamesha roshan rahe. 
+            AMEEN SUMAMEEN!!! I LOVE SO MUCH YOUUUUU!!!!!"
+        </div>
+        
+        <p class="signature">I Love You So Much</p>
+    </main>
+
+    <script>
+        function createLantern() {
+            const container = document.getElementById('lantern-container');
+            const lantern = document.createElement('div');
+            lantern.className = 'lantern';
+            const size = Math.random() * 20 + 20; 
+            lantern.style.width = size + 'px';
+            lantern.style.height = (size * 1.4) + 'px'; 
+            lantern.style.left = Math.random() * 100 + 'vw';
+            lantern.style.animation = `floatUp ${Math.random() * 10 + 15}s linear forwards`;
+            container.appendChild(lantern);
+            setTimeout(() => lantern.remove(), 25000);
+        }
+        setInterval(createLantern, 700);
+        for(let i=0; i<15; i++) createLantern();
+    </script>
+</body>
+</html>
